@@ -50,5 +50,12 @@ namespace UIAutomationClient.FluentExtensions
 
             return element;
         }
+
+        public static AutomationElement SendKeys(this AutomationElement element, string keys)
+        {
+            element.SetFocus();
+            System.Windows.Forms.SendKeys.SendWait(keys);
+            return element;
+        }
     }
 }

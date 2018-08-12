@@ -25,6 +25,7 @@ namespace UIAutomationClient.FluentExtensions.Tests
             {
                 process.WaitForInputIdle();
                 process.CloseMainWindow();
+                sut.SendKeys("n");
                 process.Close();
             }
             catch (Exception ex)
@@ -91,6 +92,12 @@ namespace UIAutomationClient.FluentExtensions.Tests
         public void Pattern()
         {
             sut.Pattern<WindowPattern>(x => x.Close());
+        }
+
+        [Test]
+        public void SendKeys()
+        {
+            sut.SendKeys("Yoh!{ENTER}Bye!");
         }
     }
 }
