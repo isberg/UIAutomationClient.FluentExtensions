@@ -1,4 +1,6 @@
-﻿using System.Windows.Automation;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Automation;
 
 namespace UIAutomationClient.FluentExtensions
 {
@@ -7,6 +9,13 @@ namespace UIAutomationClient.FluentExtensions
         public static AutomationElement FindFirstChild(this AutomationElement element, Condition condition)
         {
             return element.FindFirst(TreeScope.Children, condition);
+        }
+
+        public static IEnumerable<AutomationElement> FindAllChildren(this AutomationElement element, Condition condition = null)
+        {
+            return element
+                .FindAll(TreeScope.Children, condition ?? Condition.TrueCondition)
+                .Cast<AutomationElement>();
         }
     }
 }
