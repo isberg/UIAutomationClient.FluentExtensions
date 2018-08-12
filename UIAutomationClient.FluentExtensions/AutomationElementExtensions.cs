@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Automation;
 
@@ -16,6 +17,26 @@ namespace UIAutomationClient.FluentExtensions
             return element
                 .FindAll(TreeScope.Children, condition ?? Condition.TrueCondition)
                 .Cast<AutomationElement>();
+        }
+
+        public static T GetCurrentPattern<T>(this AutomationElement element)
+            where T : BasePattern
+        {
+            var pattern = (AutomationPattern)typeof(T)
+                .GetField("Pattern")
+                .GetValue(null);
+
+            return (T)element.GetCurrentPattern(pattern);
+        }
+
+        public static AutomationElement Pattern<T>(this AutomationElement element, Action<T> action)
+            where T : BasePattern
+        {
+            var pattern = element.GetCurrentPattern<T>();
+
+            action(pattern);
+
+            return element;
         }
     }
 }

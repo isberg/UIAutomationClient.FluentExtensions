@@ -59,5 +59,11 @@ namespace UIAutomationClient.FluentExtensions.Tests
             IEnumerable<AutomationElement> children
                 = sut.FindAllChildren(null);
         }
+
+        [Test]
+        public void Pattern()
+        {
+            sut.Pattern<WindowPattern>(x => x.Close());
+        }
     }
 }
