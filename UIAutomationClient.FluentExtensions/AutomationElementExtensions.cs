@@ -19,6 +19,18 @@ namespace UIAutomationClient.FluentExtensions
                 .Cast<AutomationElement>();
         }
 
+        public static AutomationElement FindFirstDescendant(this AutomationElement element, Condition condition)
+        {
+            return element.FindFirst(TreeScope.Descendants, condition);
+        }
+
+        public static IEnumerable<AutomationElement> FindAllDescendants(this AutomationElement element, Condition condition = null)
+        {
+            return element
+                .FindAll(TreeScope.Descendants, condition ?? Condition.TrueCondition)
+                .Cast<AutomationElement>();
+        }
+
         public static T GetCurrentPattern<T>(this AutomationElement element)
             where T : BasePattern
         {

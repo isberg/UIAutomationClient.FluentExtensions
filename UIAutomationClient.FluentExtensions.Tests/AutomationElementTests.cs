@@ -61,6 +61,33 @@ namespace UIAutomationClient.FluentExtensions.Tests
         }
 
         [Test]
+        public void FindFirstDescendant()
+        {
+            sut.FindFirstDescendant(Condition.TrueCondition);
+        }
+
+        [Test]
+        public void FindAllFirstDescendantsWithCondition()
+        {
+            IEnumerable<AutomationElement> children
+                = sut.FindAllDescendants(Condition.TrueCondition);
+        }
+
+        [Test]
+        public void FindAllFirstDescendantsWithoutCondition()
+        {
+            IEnumerable<AutomationElement> children
+                = sut.FindAllDescendants();
+        }
+
+        [Test]
+        public void FindAllFirstDescendantsWithNullCondition()
+        {
+            IEnumerable<AutomationElement> children
+                = sut.FindAllDescendants(null);
+        }
+
+        [Test]
         public void Pattern()
         {
             sut.Pattern<WindowPattern>(x => x.Close());
