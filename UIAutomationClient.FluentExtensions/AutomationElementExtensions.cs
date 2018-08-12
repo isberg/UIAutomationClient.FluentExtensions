@@ -1,14 +1,12 @@
-﻿using System.Diagnostics;
-using System.Windows.Automation;
+﻿using System.Windows.Automation;
 
 namespace UIAutomationClient.FluentExtensions
 {
     public static class AutomationElementExtensions
     {
-        public static AutomationElement GetMainWindow(this Process process)
+        public static AutomationElement FindFirstChild(this AutomationElement element, Condition condition)
         {
-            process.WaitForInputIdle();
-            return AutomationElement.FromHandle(process.MainWindowHandle);
+            return element.FindFirst(TreeScope.Children, condition);
         }
     }
 }

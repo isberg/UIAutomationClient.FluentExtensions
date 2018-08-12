@@ -53,8 +53,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutomationElementTests.cs" />
     <Compile Include="ProcessExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UIAutomationClient.FluentExtensions\UIAutomationClient.FluentExtensions.csproj">
-      <Project>{6100fd55-a58f-4229-856b-f16ca712e85f}</Project>
+      <Project>{4a4273e6-03d3-4d4e-b5ff-1a476d9b8929}</Project>
       <Name>UIAutomationClient.FluentExtensions</Name>
     </ProjectReference>
   </ItemGroup>
