@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutomationElementExtensions.cs" />
+    <Compile Include="By.cs" />
     <Compile Include="ProcessExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
